@@ -1,0 +1,20 @@
+{
+  "name": "my-promise",
+  "version": "1.0.0",
+  "description": "A custom implementation of JavaScript Promise to understand async programming and promise mechanics.",
+  "keywords": ["promise"],
+  "module": "src/index.js",
+  "scripts": {
+    "test": "rollup ./src/index.js --file ./out/index.js --format cjs --plugin terser && promises-aplus-tests ./out/index.js",
+    "format": "biome format --write",
+    "lint": "biome lint --write"
+  },
+  "author": "Echo",
+  "license": "MIT",
+  "devDependencies": {
+    "@biomejs/biome": "1.9.4",
+    "@rollup/plugin-terser": "^0.4.4",
+    "promises-aplus-tests": "^2.1.2",
+    "rollup": "^4.27.3"
+  }
+}
