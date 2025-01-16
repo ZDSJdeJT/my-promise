@@ -1,8 +1,7 @@
 {
   "name": "my-promise",
   "version": "1.0.0",
-  "description": "A custom implementation of JavaScript Promise to understand async programming and promise mechanics.",
-  "keywords": ["promise"],
+  "private": true,
   "module": "src/index.js",
   "scripts": {
     "test": "rollup ./src/index.js --file ./out/index.js --format cjs --plugin terser && promises-aplus-tests ./out/index.js",
