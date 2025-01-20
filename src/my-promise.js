@@ -2,21 +2,21 @@ const PENDING = "pending";
 const FULFILLED = "fulfilled";
 const REJECTED = "rejected";
 
-const resolveMyPromise = (pre, cur, resolve, reject) => {
-  if (pre === cur) {
+const resolveMyPromise = (prev, cur, resolve, reject) => {
+  if (prev === cur) {
     throw new TypeError("Chaining cycle detected for promise");
   }
   let then;
-  if (pre instanceof MyPromise) {
-    pre.then((value) => {
+  if (prev instanceof MyPromise) {
+    prev.then((value) => {
       resolveMyPromise(value, cur, resolve, reject);
     }, reject);
   } else if (
-    pre !== null &&
-    (typeof pre === "object" || typeof pre === "function")
+    prev !== null &&
+    (typeof prev === "object" || typeof prev === "function")
   ) {
     try {
-      then = pre.then;
+      then = prev.then;
     } catch (e) {
       reject(e);
       return;
@@ -25,7 +25,7 @@ const resolveMyPromise = (pre, cur, resolve, reject) => {
       let called = false;
       try {
         then.call(
-          pre,
+          prev,
           (value) => {
             if (called) {
               return;
@@ -49,10 +49,10 @@ const resolveMyPromise = (pre, cur, resolve, reject) => {
         reject(e);
       }
     } else {
-      resolve(pre);
+      resolve(prev);
     }
   } else {
-    resolve(pre);
+    resolve(prev);
   }
 };
 
