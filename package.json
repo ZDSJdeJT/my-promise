@@ -2,7 +2,7 @@
   "name": "my-promise",
   "version": "1.0.0",
   "private": true,
-  "author": "Echo",
+  "author": "Echo <zdsjdejt@qq.com>",
   "module": "src/index.js",
   "scripts": {
     "test": "rollup ./src/index.js --file ./out/index.js --format cjs --plugin terser && promises-aplus-tests ./out/index.js",
